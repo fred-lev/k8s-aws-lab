@@ -19,12 +19,19 @@ Minikube autocompletion with zsh seems to be a bit broken:
 
 Works by doing:
 
+add  `minikube` in  plugin in `~/.zsh.rc`
+
 ```console
-minikube completion zsh > ~/.minikube-completion
-sed -i "" 's/aliashash\["\([a-z]*\)"\]/aliashash[\1]/g' ~/.minikube-completion
-source <(~/.minikube-completion)
+plugins=(
+  minikube
+)
 ```
 
+remove double quotes for `aliashash` commands in completion cached file:
+
+```console
+sed -i "" 's/aliashash\["\([a-z]*\)"\]/aliashash[\1]/g' ~/.oh-my-zsh/cache/minikube_completion
+```
 
 ## Github actions
 
