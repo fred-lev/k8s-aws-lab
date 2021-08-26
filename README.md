@@ -1,6 +1,5 @@
 # Kubernetes AWS lab environment
 
-
 ## Minikube commands
 
 Delete any exiting/outdated minikube configuration
@@ -32,6 +31,17 @@ remove double quotes for `aliashash` commands in completion cached file:
 ```console
 sed -i "" 's/aliashash\["\([a-z]*\)"\]/aliashash[\1]/g' ~/.oh-my-zsh/cache/minikube_completion
 ```
+
+## Installing Kubernetes with kops
+
+[Installing Kubernetes with kops](https://kubernetes.io/docs/setup/production-environment/tools/kops/)
+
+macOS and Linux From Homebrew
+
+```console
+brew update && brew install kops
+```
+
 
 ## Github actions
 
