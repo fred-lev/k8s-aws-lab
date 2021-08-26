@@ -42,6 +42,28 @@ macOS and Linux From Homebrew
 brew update && brew install kops
 ```
 
+[getting-started-with-kops-on-aws](https://github.com/kubernetes/kops/blob/master/docs/getting_started/aws.md#getting-started-with-kops-on-aws)
+
+Install aws-cli
+
+```console
+brew info awscli
+```
+
+Install kops:
+
+```console
+brew install kops
+```
+
+Set `~/.aws/config`
+
+```console
+[default]
+region = ap-southeast-1
+output = json
+cli_pager = # without it, commands outputs are not sent to vscode terminal
+```
 
 ## Github actions
 
