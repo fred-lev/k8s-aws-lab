@@ -1,6 +1,29 @@
 # Kubernetes AWS lab environment
 
-## Minikube commands
+## Install aws-cli
+
+```console
+brew info awscli
+```
+
+Set `~/.aws/config`
+
+```console
+[default]
+region = ap-southeast-1
+output = json
+cli_pager = # without it, commands outputs are not sent to vscode terminal
+```
+
+## Installing Kubernetes with kops
+
+Check the following official docs:
+
+- [Installing Kubernetes with kops](https://kubernetes.io/docs/setup/production-environment/tools/kops/)
+
+- [getting-started-with-kops-on-aws](https://github.com/kubernetes/kops/blob/master/docs/getting_started/aws.md#getting-started-with-kops-on-aws)
+
+## Minikube setup for local testing
 
 Delete any exiting/outdated minikube configuration
 
@@ -30,39 +53,6 @@ remove double quotes for `aliashash` commands in completion cached file:
 
 ```console
 sed -i "" 's/aliashash\["\([a-z]*\)"\]/aliashash[\1]/g' ~/.oh-my-zsh/cache/minikube_completion
-```
-
-## Installing Kubernetes with kops
-
-[Installing Kubernetes with kops](https://kubernetes.io/docs/setup/production-environment/tools/kops/)
-
-macOS and Linux From Homebrew
-
-```console
-brew update && brew install kops
-```
-
-[getting-started-with-kops-on-aws](https://github.com/kubernetes/kops/blob/master/docs/getting_started/aws.md#getting-started-with-kops-on-aws)
-
-Install aws-cli
-
-```console
-brew info awscli
-```
-
-Install kops:
-
-```console
-brew install kops
-```
-
-Set `~/.aws/config`
-
-```console
-[default]
-region = ap-southeast-1
-output = json
-cli_pager = # without it, commands outputs are not sent to vscode terminal
 ```
 
 ## Github actions
