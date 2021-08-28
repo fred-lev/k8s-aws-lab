@@ -53,7 +53,7 @@ List the az available in the region and pick one to generate the cluster config
 aws ec2 describe-availability-zones --region ap-southeast-1
 
 kops create cluster \
-    --zones=ap-southeast-1a \
+    --zones=ap-southeast-1a,ap-southeast-1b,ap-southeast-1c \
     ${NAME}
 ```
 
