@@ -23,6 +23,75 @@ Check the following official docs:
 
 - [getting-started-with-kops-on-aws](https://github.com/kubernetes/kops/blob/master/docs/getting_started/aws.md#getting-started-with-kops-on-aws)
 
+
+I am using my own domain here.
+
+```console
+ID=$(uuidgen) && aws route53 create-hosted-zone --name lab.flev.fr --caller-reference $ID | jq .DelegationSet.NameServers
+```
+
+On the domain hosting side I have added the NS records from the above cmd for the subdomain `lab.flev.fr`.
+
+create an S3 bucket to save the state of the cluster and encrypt it.
+
+```console
+aws s3api create-bucket --bucket lab-flev-fr-state-store --create-bucket-configuration LocationConstraint=ap-southeast-1
+aws s3api put-bucket-versioning --bucket lab-flev-fr-state-store  --versioning-configuration Status=Enabled
+aws s3api put-bucket-encryption --bucket lab-flev-fr-state-store  --server-side-encryption-configuration '{"Rules":[{"ApplyServerSideEncryptionByDefault":{"SSEAlgorithm":"AES256"}}]}'
+```
+
+export cluster and state store names:
+
+```console
+export NAME=lab.flev.fr
+export KOPS_STATE_STORE=s3://lab-flev-fr-state-store
+```
+
+List the az available in the region and pick one to generate the cluster config
+
+```console
+aws ec2 describe-availability-zones --region ap-southeast-1
+
+kops create cluster \
+    --zones=ap-southeast-1a \
+    ${NAME}
+```
+
+Generate a new RSA key to be used by kops (elliptic curve isn't supported)
+
+```console
+ssh-keygen -f  ~/.ssh/kops_rsa.pub
+ssh-add -K ~/.ssh/kops_rsa
+```
+
+Edit the cluster config and set the generated key for the admin user
+
+```console
+kops create secret --name  ${NAME} sshpublickey admin -i ~/.ssh/kops_rsa.pub
+```
+
+Get pub IP and restrict ssh and api access to that pub Ip by overwritting the 0.0.0.0/0 entry
+
+```console
+curl ifconfig.me
+kops edit cluster ${NAME}
+```
+
+Create the cluster and export the admin config
+
+```console
+kops update cluster ${NAME} --yes
+kops export kubecfg --admin
+```
+
+Validate the cluster creation.
+
+```console
+kops export kubecfg --admin
+```
+
+Note: it might take some time for the api.lab.flev.fr A record to resolve.
+
 ## Minikube setup for local testing
 
 Delete any exiting/outdated minikube configuration
