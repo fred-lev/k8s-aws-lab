@@ -105,6 +105,12 @@ k expose pod nginx --type LoadBalancer --port 80
 
 Try to reach the external DNS displayed under `EXTERNAL-IP` in the output of `k get svc nginx`.
 
+Delete the cluster:
+
+```console
+kops delete cluster ${NAME} --yes
+```
+
 ## Minikube setup for local testing
 
 Delete any exiting/outdated minikube configuration
