@@ -92,6 +92,19 @@ kops export kubecfg --admin
 
 Note: it might take some time for the api.lab.flev.fr A record to resolve.
 
+Test access from outside by deploying an nginx Pod and exposing it using a loadbalancer type service.
+
+Add the following policy `ElasticLoadBalancingFullAccess` to the `masters.lab.flev.fr` role.
+
+If not it won't be able to create the AWS loadbalancer.
+
+```console
+k run nginx --image=nginx
+k expose pod nginx --type LoadBalancer --port 80
+```
+
+Try to reach the external DNS displayed under `EXTERNAL-IP` in the output of `k get svc nginx`.
+
 ## Minikube setup for local testing
 
 Delete any exiting/outdated minikube configuration
