@@ -60,7 +60,7 @@ kops create cluster \
 Generate a new RSA key to be used by kops (elliptic curve isn't supported)
 
 ```console
-ssh-keygen -b 2048 -t rsa -f  ~/.ssh/kops_rsa
+ssh-keygen -t rsa -f  ~/.ssh/kops_rsa
 ssh-add -K ~/.ssh/kops_rsa
 ```
 
