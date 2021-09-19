@@ -121,7 +121,7 @@ Set the [minimum IAM permissions](https://eksctl.io/usage/minimum-iam-policies/)
 
 ```console
 eksctl create cluster \
---name my-cluster \
+--name lab1 \
 --region ap-southeast-1 \
 --with-oidc \
 --ssh-access \
@@ -139,7 +139,7 @@ kubectl get nodes -o wide
 
 ```console
 eksctl delete cluster \
---name my-cluster \
+--name lab1 \
 --region ap-southeast-1 \
 ```
 
