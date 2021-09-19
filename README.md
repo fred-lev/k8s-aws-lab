@@ -123,6 +123,7 @@ Best approach here is to create a group, give it the `minimum IAM permissions` a
 ```console
 eksctl create cluster \
 --name lab1 \
+--nodes-min 3 \
 --region ap-southeast-1 \
 --with-oidc \
 --ssh-access \
