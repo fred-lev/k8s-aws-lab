@@ -116,7 +116,8 @@ Official doc for [eksctl](https://eksctl.io/)
 
 - [minimum IAM permissions](https://eksctl.io/usage/minimum-iam-policies/) for a user to be able to fully handle the cluster creation via eksctl.
 
-Best approach here is to create a group, give it the `minimum IAM permissions` and assign a new eksctl user to that group and run aws configure to login as that user.
+The best approach here is to create a group, give it the `minimum IAM permissions` and assign a new eksctl user to that group and run aws configure to login as that user.
+For simplicity sake I am reusing the kops user I created above and add it to the new create group for eksctl usage.
 
 ### create the cluster
 
