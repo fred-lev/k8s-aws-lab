@@ -1,0 +1,69 @@
+apiVersion: eksctl.io/v1alpha5
+availabilityZones:
+  - ap-southeast-1a
+  - ap-southeast-1b
+  - ap-southeast-1c
+cloudWatch:
+  clusterLogging: {}
+iam:
+  vpcResourceControllerPolicy: true
+  withOIDC: true
+kind: ClusterConfig
+managedNodeGroups:
+  - amiFamily: AmazonLinux2
+    desiredCapacity: 3
+    disableIMDSv1: false
+    disablePodIMDS: false
+    iam:
+      withAddonPolicies:
+        albIngress: false
+        appMesh: false
+        appMeshPreview: false
+        autoScaler: false
+        certManager: false
+        cloudWatch: false
+        ebs: false
+        efs: false
+        externalDNS: false
+        fsx: false
+        imageBuilder: false
+        xRay: false
+    instanceSelector: {}
+    instanceType: m5.large
+    labels:
+      alpha.eksctl.io/cluster-name: lab1
+      alpha.eksctl.io/nodegroup-name: ng-9bfefdad
+    maxSize: 3
+    minSize: 3
+    name: ng-9bfefdad
+    privateNetworking: false
+    releaseVersion: ""
+    securityGroups:
+      withLocal: null
+      withShared: null
+    ssh:
+      allow: true
+      publicKeyPath: /Users/fredlev/.ssh/kops_rsa.pub
+    tags:
+      alpha.eksctl.io/nodegroup-name: ng-9bfefdad
+      alpha.eksctl.io/nodegroup-type: managed
+    volumeIOPS: 3000
+    volumeSize: 80
+    volumeThroughput: 125
+    volumeType: gp3
+metadata:
+  name: lab1
+  region: ap-southeast-1
+  version: "1.20"
+privateCluster:
+  enabled: false
+vpc:
+  autoAllocateIPv6: false
+  cidr: 192.168.0.0/16
+  clusterEndpoints:
+    privateAccess: false
+    publicAccess: true
+  manageSharedNodeSecurityGroupRules: true
+  nat:
+    gateway: Single
+  publicAccessCIDRs: ["my_public_ip/32"]
