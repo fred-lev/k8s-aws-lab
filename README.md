@@ -23,7 +23,6 @@ Check the following official docs:
 
 - [getting-started-with-kops-on-aws](https://github.com/kubernetes/kops/blob/master/docs/getting_started/aws.md#getting-started-with-kops-on-aws)
 
-
 I am using my own domain here.
 
 ```console
