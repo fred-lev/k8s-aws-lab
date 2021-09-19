@@ -113,6 +113,10 @@ kops delete cluster ${NAME} --yes
 
 ## managing a cluster using eksctl
 
+Official doc for [eksctl](https://eksctl.io/)
+
+Set the [minimum IAM permissions](https://eksctl.io/usage/minimum-iam-policies/) for the user to be able to fully handle the cluster creation via eksctl.
+
 ### create the cluster
 
 ```console
