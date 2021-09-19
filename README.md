@@ -132,6 +132,12 @@ eksctl create cluster \
 --managed
 ```
 
+Or use a cluster config file such as [simple_cluster.yaml](./simple_cluster.yaml)
+
+```console
+eksctl create cluster -f simple_cluster.yaml
+```
+
 ### restrict kube api access to your public IP
 
 ```console
