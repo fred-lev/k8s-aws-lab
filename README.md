@@ -115,7 +115,9 @@ kops delete cluster ${NAME} --yes
 
 Official doc for [eksctl](https://eksctl.io/)
 
-Set the [minimum IAM permissions](https://eksctl.io/usage/minimum-iam-policies/) for the user to be able to fully handle the cluster creation via eksctl.
+- [minimum IAM permissions](https://eksctl.io/usage/minimum-iam-policies/) for a user to be able to fully handle the cluster creation via eksctl.
+
+Best approach here is to create a group, give it the `minimum IAM permissions` and assign a new eksctl user to that group and run aws configure to login as that user.
 
 ### create the cluster
 
@@ -127,6 +129,12 @@ eksctl create cluster \
 --ssh-access \
 --ssh-public-key ~/.ssh/kops_rsa.pub \
 --managed
+```
+
+### restrict kube api access to your public IP
+
+```console
+eksctl utils set-public-access-cidrs --cluster=lab1 $(curl -s ifconfig.me)/32 --approve
 ```
 
 ### list nodes
