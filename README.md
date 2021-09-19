@@ -148,7 +148,7 @@ kubectl get nodes -o wide
 ```console
 eksctl delete cluster \
 --name lab1 \
---region ap-southeast-1 \
+--region ap-southeast-1
 ```
 
 ## Minikube setup for local testing
