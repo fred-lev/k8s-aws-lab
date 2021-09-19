@@ -111,6 +111,34 @@ Delete the cluster:
 kops delete cluster ${NAME} --yes
 ```
 
+## managing a cluster using eksctl
+
+### create the cluster
+
+```console
+eksctl create cluster \
+--name my-cluster \
+--region ap-southeast-1 \
+--with-oidc \
+--ssh-access \
+--ssh-public-key ~/.ssh/kops_rsa.pub \
+--managed
+```
+
+### list nodes
+
+```console
+kubectl get nodes -o wide
+```
+
+### delete the cluster
+
+```console
+eksctl delete cluster \
+--name my-cluster \
+--region ap-southeast-1 \
+```
+
 ## Minikube setup for local testing
 
 Delete any exiting/outdated minikube configuration
