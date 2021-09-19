@@ -70,7 +70,7 @@ Edit the cluster config and set the generated key for the admin user
 kops create secret --name  ${NAME} sshpublickey admin -i ~/.ssh/kops_rsa.pub
 ```
 
-Get pub IP and restrict ssh and api access to that pub Ip by overwritting the 0.0.0.0/0 entry
+Get pub IP and restrict ssh and api access to that pub Ip by overwriting the 0.0.0.0/0 entry
 
 ```console
 curl ifconfig.me
