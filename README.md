@@ -3,7 +3,7 @@
 ## Install aws-cli
 
 ```console
-brew info awscli
+brew install awscli
 ```
 
 Set `~/.aws/config`
