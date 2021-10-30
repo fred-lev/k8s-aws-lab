@@ -43,7 +43,7 @@ managedNodeGroups:
       withShared: null
     ssh:
       allow: true
-      publicKeyPath: /Users/fredlev/.ssh/kops_rsa.pub
+      publicKeyPath: ~/.ssh/kops_rsa.pub
     tags:
       alpha.eksctl.io/nodegroup-name: ng-9bfefdad
       alpha.eksctl.io/nodegroup-type: managed
@@ -66,4 +66,3 @@ vpc:
   manageSharedNodeSecurityGroupRules: true
   nat:
     gateway: Single
-  publicAccessCIDRs: ["my_public_ip/32"]
