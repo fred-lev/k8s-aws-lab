@@ -69,7 +69,7 @@ Edit the cluster config and set the generated key for the admin user
 kops create secret --name  ${NAME} sshpublickey admin -i ~/.ssh/kops_rsa.pub
 ```
 
-Get pub IP and restrict ssh and api access to that pub Ip by overwriting the 0.0.0.0/0 entry
+Get pub IP and restrict ssh and API access to that pub Ip by overwriting the 0.0.0.0/0 entry
 
 ```console
 curl ifconfig.me
@@ -138,7 +138,7 @@ Or use a cluster config file such as [simple_cluster.yaml](./simple_cluster.yaml
 eksctl create cluster -f simple_cluster.yaml
 ```
 
-### restrict kube api access to your public IP
+### restrict kube API access to your public IP
 
 ```console
 eksctl utils set-public-access-cidrs --cluster=lab1 $(curl -s ifconfig.me)/32 --approve
@@ -190,11 +190,11 @@ remove double quotes for `aliashash` commands in completion cached file:
 sed -i "" 's/aliashash\["\([a-z]*\)"\]/aliashash[\1]/g' ~/.oh-my-zsh/cache/minikube_completion
 ```
 
-## Github actions
+## GitHub actions
 
-This repo is using GH Actions to execute [super-linter](https://github.com/github/super-linter).
+This repository is using GH Actions to execute [super-linter](https://github.com/github/super-linter).
 
-I am mostly interested in linting the ansible (YAML), terraform(HCL) and markdown files in the repo using:
+I am mostly interested in linting the ansible (YAML), terraform(HCL) and Markdown files in the repository using:
 
 - ansible-lint
 - markdownlint
