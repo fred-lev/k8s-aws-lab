@@ -1,7 +1,6 @@
 # Kubernetes AWS lab environment
 
-[![Lint Code Base](https://github.com/fred-lev/k8s-aws-lab/actions/workflows/linter.yml/badge.svg?branch=main&event=push)](https://github.com/fred-lev/k8s-aws-lab/actions/workflows/linter.yml)
-
+[![Lint Code Base](https://github.com/fred-lev/k8s-aws-lab/actions/workflows/linter.yml/badge.svg?branch=main)](https://github.com/fred-lev/k8s-aws-lab/actions/workflows/linter.yml)
 ## Install aws-cli
 
 ```console
